@@ -1,8 +1,11 @@
 
 import { test, expect } from '@playwright/test';
 test('get started link', async ({ page }, testInfo) => {
-    await page.goto('https://google.com/');
-    await page.getByRole('button', { name: 'Aceptar todo' }).click();
+    await page.goto('https://google.es/');
+    
+     if (await page.getByRole('button', { name: 'Aceptar todo' }).isVisible()){
+          await page.getByRole('button', { name: 'Aceptar todo' }).click();
+     }
     await expect(page).toHaveTitle(/Google/);
     await page.getByLabel('Buscar', { exact: true }).fill('Automation')
     await page.getByRole('button', { name: 'Buscar con Google' }).click();
