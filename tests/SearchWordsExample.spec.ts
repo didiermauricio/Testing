@@ -15,5 +15,5 @@ test('get started link', async ({ page }, testInfo) => {
 
     const screnshot2 = await page.getByText('El 25 de mayo de 2017, la').screenshot({ path: 'screenshot.png' });
     await testInfo.attach('screnshot2', { body: screnshot2, contentType: 'image/png' });
-    
+    //close
   });
