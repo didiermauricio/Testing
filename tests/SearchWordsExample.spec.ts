@@ -7,11 +7,11 @@ test('get started link', async ({ page }, testInfo) => {
           await page.getByRole('button', { name: 'Aceptar todo' }).click();
      }
     await expect(page).toHaveTitle(/Google/);
-    await expect(page.getByLabel('Buscar', { exact: true })).toBeEnabled();
+  
     await page.getByLabel('Buscar', { exact: true }).fill('Automation')
-    await page.getByRole('button', { name: 'Buscar con Google' }).click();
-    await page.getByRole('link', { name: 'Automation (videojuego) -' }).click();
-    await expect(page.getByText('El 25 de mayo de 2017, la')).toContainText('2017');
+    await page.getByLabel('Buscar', { exact: true }).press("Enter")
+    await page.getByRole('link', { name: 'Automation (videojuego) -' }).click()
+    await expect(page.getByText('El 25 de mayo de 2017, la')).toContainText('2017')
   
     
     const screenshot = await page.screenshot();
