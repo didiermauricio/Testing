@@ -1,13 +1,20 @@
 
 import { test, expect } from '@playwright/test';
+import { HomePage} from "../page/homepage";
+
+
+
 test('get started link', async ({ page }, testInfo) => {
+    
+    const hPage = new HomePage(page)
+
     await page.goto('https://google.es/');
     
      if (await page.getByRole('button', { name: 'Aceptar todo' }).isVisible()){
           await page.getByRole('button', { name: 'Aceptar todo' }).click();
      }
     await expect(page).toHaveTitle(/Google/);
-    await page.getByLabel('Buscar', { exact: true }).fill('Automation')
+    await hPage.Search_Word('automation')
     await page.getByRole('button', { name: 'Buscar con Google' }).click();
     await page.getByRole('link', { name: 'Automation (videojuego) -' }).click();
     await expect(page.getByText('El 25 de mayo de 2017, la')).toContainText('2017');

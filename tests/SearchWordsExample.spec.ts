@@ -8,13 +8,12 @@ test('get started link', async ({ page }, testInfo) => {
      }
     await expect(page).toHaveTitle(/Google/);
   
-    await page.getByLabel('Buscar', { exact: true }).click()
+    await page.locator('//textarea[@id=\'APjFqb\']').click()
     await page.locator('//textarea[@id=\'APjFqb\']').fill('Automation')
     await page.getByLabel('Buscar', { exact: true }).press("Enter")
     await page.getByRole('link', { name: 'Automation (videojuego) -' }).click()
     await expect(page.getByText('El 25 de mayo de 2017, la')).toContainText('2017')
-  
-    
+      
     const screenshot = await page.screenshot();
     await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 
