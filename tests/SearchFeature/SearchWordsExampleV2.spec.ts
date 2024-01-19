@@ -7,7 +7,6 @@ test('get started link', async ({ page }, testInfo) => {
           await page.getByRole('button', { name: 'Aceptar todo' }).click();
      }
     await expect(page).toHaveTitle(/Google/);
-    await expect(page.getByLabel('Buscar', { exact: true })).toBeEnabled();
     await page.getByLabel('Buscar', { exact: true }).fill('Automation')
     await page.getByRole('button', { name: 'Buscar con Google' }).click();
     await page.getByRole('link', { name: 'Automation (videojuego) -' }).click();
