@@ -1,11 +1,10 @@
-import { expect, type Locator, type Page } from "@playwright/test";
+import { expect, type Page } from "@playwright/test";
 
 export class TestBase {
     readonly page: Page
-  
+    
     constructor(page: Page) {
-        this.page = page;
-               
+        this.page = page;                       
     }
         
     async GoTo() {

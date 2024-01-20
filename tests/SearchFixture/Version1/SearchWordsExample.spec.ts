@@ -11,13 +11,13 @@ test('Search_Word_In_Google', async ({ page }, testInfo) => {
     await page.locator('//textarea[@id=\'APjFqb\']').click()
     await page.locator('//textarea[@id=\'APjFqb\']').fill('Automation')
     await page.getByLabel('Buscar', { exact: true }).press("Enter")
-    await page.getByRole('link', { name: 'Automation (videojuego) -' }).click()
-    await expect(page.getByText('El 25 de mayo de 2017, la')).toContainText('2017')
+    await page.getByRole('link', { name: 'Automation Wikipedia https://' }).click()
+    await expect(page.getByText('In 1771 Richard Arkwright')).toContainText('1771')
       
     const screenshot = await page.screenshot();
     await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 
-    const screnshot2 = await page.getByText('El 25 de mayo de 2017, la').screenshot({ path: 'screenshot.png' });
+    const screnshot2 = await page.getByText('In 1771 Richard Arkwright').screenshot({ path: 'screenshot.png' });
     await testInfo.attach('screnshot2', { body: screnshot2, contentType: 'image/png' });
     //close
   });

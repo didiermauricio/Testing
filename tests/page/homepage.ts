@@ -15,5 +15,6 @@ export class HomePage {
     await this.searchTextArea.fill(word);
     await this.searchTextArea.press("Enter")
   }
+ 
 
 }
