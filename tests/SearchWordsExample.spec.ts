@@ -1,6 +1,6 @@
 
 import { test, expect } from '@playwright/test';
-test('get started link', async ({ page }, testInfo) => {
+test('Search_Word_In_Google', async ({ page }, testInfo) => {
     await page.goto('https://google.es/');
     
      if (await page.getByRole('button', { name: 'Aceptar todo' }).isVisible()){
