@@ -3,7 +3,7 @@ import { chromium, firefox, test } from '@playwright/test';
 import { HomePage} from "../../page/homepage";
 import { TestBase} from "../../page/TestBase";
 import { SearchResultsPage} from "../../page/searchresultspage";
-const browser = await chromium.launch(); 
+const browser =  chromium.launch(); 
 
 
 test.beforeAll(async () => {
@@ -11,7 +11,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
-  browser.close()
+  (await browser).close()
 });
 
 test('get started link', async ({ page }, testInfo) => {
